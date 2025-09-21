@@ -61,6 +61,14 @@ import {
 import { useToast } from '@/hooks/use-toast';
 import { WelcomePopup } from '@/components/welcome-popup';
 import Heroimage from '../../public/Image/hero-cacs.png';
+import carasol1 from '../../public/Image/income tax filing services.jpg';
+import carasol2 from '../../public/Image/Virtual CFO.jpg';
+import carasol3 from '../../public/Image/business compliance & company secretarial2.jpg';
+import carasol4 from '../../public/Image/accounting & book keeping2.jpg';
+import carasol5 from '../../public/Image/strategic tax & wealth advisory2.jpg';
+import whoweare from '../../public/Image/who-we-are-img.jpg';
+import whoweare2 from '../../public/Image/who-we-are-img2.jpg'
+
 
 const testimonials = [
   {
@@ -172,39 +180,39 @@ const homeServices = [
 
 const sliderItems = [
   {
-    title: 'HASSLE-FREE ITR FILING FOR INDIVIDUALS & PROFESSIONALS',
-    description:
-      'Leave the confusion behind. Our experts ensure accurate ITR filing, TDS reconciliation, and Form 26AS matching—on time, every time.',
-    image: 'https://picsum.photos/1200/500',
-    imageHint: 'tax forms calculator',
+    title: 'Hassle-Free ITR Filing for Individuals & Professionals',
+    description: 'Leave the confusion behind. Our experts ensure accurate ITR filing, TDS reconciliation, and Form 26AS matching—on time, every time.',
+    image: carasol1,
+    imageHint: 'tax filing documents',
+    href: 'https://wa.me/9591633648',
   },
   {
-    title: 'STREAMLINED GST SOLUTIONS FOR YOUR BUSINESS',
-    description:
-      'From registration to return filing, we handle all your GST compliance needs, so you can focus on growth.',
-    image: 'https://picsum.photos/1200/500',
-    imageHint: 'business meeting finance',
+    title: 'Smart Financial Leadership Without a Full-Time CFO',
+    description: 'Gain CFO-level insights to manage cash flow, investor decks, MIS reports, and financial health — tailored for your startup growth.',
+    image: carasol2,
+    imageHint: 'financial leadership meeting',
+    href: 'https://wa.me/9591633648',
   },
   {
-    title: 'EXPERT COMPANY REGISTRATION SERVICES',
-    description:
-      'Launch your venture with confidence. We guide you through the entire process of registering your company.',
-    image: 'https://picsum.photos/1200/500',
-    imageHint: 'startup office',
+    title: 'Compliance Made Simple for Private Limited & LLPs',
+    description: 'From company registration to annual returns, get full secretarial support under Companies Act, 2013 — with no hidden delays.',
+    image: carasol3,
+    imageHint: 'business compliance documents',
+    href: 'https://wa.me/9591633648',
   },
   {
-    title: 'COMPREHENSIVE BOOKKEEPING & ACCOUNTING',
-    description:
-      'Maintain pristine financial records with our professional bookkeeping and accounting services, tailored for your business.',
-    image: 'https://picsum.photos/1200/500',
-    imageHint: 'accounting ledger',
+    title: 'Stay GST Compliant with Professional Bookkeeping',
+    description: 'Ensure timely GSTR filing, maintain accurate ledgers, and get ITC maximized — all handled by dedicated professionals.',
+    image: carasol4,
+    imageHint: 'bookkeeping accounting gst',
+    href: 'https://wa.me/9591633648',
   },
   {
-    title: 'STRATEGIC CFO SERVICES FOR SCALABLE GROWTH',
-    description:
-      'Gain valuable financial insights and strategic guidance to navigate challenges and seize opportunities.',
-    image: 'https://picsum.photos/1200/500',
-    imageHint: 'financial chart',
+    title: 'Build Wealth with Expert Tax Planning & Advice',
+    description: 'Plan capital gains, reduce tax outflows, and structure your income with high-impact tax-saving strategies led by experts.',
+    image: carasol5,
+    imageHint: 'tax planning wealth',
+    href: 'https://wa.me/9591633648',
   },
 ];
 
@@ -392,43 +400,44 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <WelcomePopup open={isPopupOpen} onOpenChange={setIsPopupOpen} />
-      <section id="hero" className="w-full py-6 md:py-8 bg-background">
+      <section id="hero" className="w-full py-6 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Mobile Image */}
             <div className="lg:hidden flex flex-col items-center text-center">
-                <Image
-                    src="/cacs-mobile-hero.png"
-                    alt="CACS Finacc Logo"
-                    width={500}
-                    height={300}
-                    className="rounded-3xl object-cover mb-4"
-                />
-                <h1 className="text-2xl font-bold font-headline tracking-tight uppercase">
-                    Turn Your Earnings Into Lasting Wealth
-                </h1>
-                <p className="text-md text-muted-foreground mt-2">
-                    Smart Business Solutions & Tax Planning for Lasting Financial Growth – All in One Place
-                </p>
-                <Button asChild size="lg" className="mt-4">
-                    <Link href="/contact">Contact Us</Link>
-                </Button>
+              <Image
+                src="/cacs-mobile-hero.png"
+                alt="CACS Finacc Logo"
+                width={500}
+                height={300}
+                className="rounded-3xl object-cover mb-4"
+              />
+              <h1 className="text-2xl font-bold font-headline tracking-tight uppercase">
+                Turn Your Earnings Into Lasting Wealth
+              </h1>
+              <p className="text-md text-muted-foreground mt-2">
+                Smart Business Solutions & Tax Planning for Lasting Financial
+                Growth – All in One Place
+              </p>
+              <Button asChild size="lg" className="mt-4">
+                <Link href="/contact">Contact Us</Link>
+              </Button>
             </div>
 
             {/* Desktop Text Content */}
             <div className="hidden lg:block">
-                 <div className="space-y-6 text-center lg:text-left">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tight text-[#5f687b] uppercase">
-                        Turn Your Earnings Into Lasting Wealth
-                    </h1>
-                    <p className="text-lg md:text-xl text-muted-foreground">
-                        Smart Business Solutions &amp; Tax Planning for Lasting
-                        Financial Growth – All in One Place
-                    </p>
-                    <Button asChild size="lg">
-                        <Link href="/contact">Contact Us</Link>
-                    </Button>
-                </div>
+              <div className="space-y-6 text-center lg:text-left">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tight text-[#5f687b] uppercase">
+                  Turn Your Earnings Into Lasting Wealth
+                </h1>
+                <p className="text-lg md:text-xl text-muted-foreground">
+                  Smart Business Solutions &amp; Tax Planning for Lasting
+                  Financial Growth – All in One Place
+                </p>
+                <Button asChild size="lg">
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
+              </div>
             </div>
 
             <div className="flex justify-center lg:justify-end">
@@ -438,7 +447,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="image-slider" className="w-full py-6 md:py-8 bg-background">
+      <section id="image-slider" className="w-full py-6 bg-background">
         <div className="container mx-auto px-4">
           <Carousel
             opts={{
@@ -450,23 +459,25 @@ export default function Home() {
             <CarouselContent>
               {sliderItems.map((item, index) => (
                 <CarouselItem key={index}>
-                  <div className="relative h-[500px] w-full rounded-2xl overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover"
-                      data-ai-hint={item.imageHint}
-                    />
-                    <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
-                      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-headline text-white uppercase">
-                        {item.title}
-                      </h2>
-                      <p className="mt-4 text-lg text-white/90 max-w-3xl">
-                        {item.description}
-                      </p>
+                  <Link href={item.href} target="_blank">
+                    <div className="relative h-[500px] w-full rounded-2xl overflow-hidden group">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        data-ai-hint={item.imageHint}
+                      />
+                      <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-headline text-white uppercase">
+                          {item.title}
+                        </h2>
+                        <p className="mt-4 text-lg text-white/90 max-w-3xl">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -476,14 +487,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="w-full py-6 md:py-8 bg-background">
+      <section id="services" className="w-full py-6 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold font-headline uppercase">
               OUR CORE SERVICES
             </h2>
           </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
             {homeServices.map((service, index) => (
               <Card
                 key={index}
@@ -515,7 +526,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="who-we-are" className="w-full py-6 md:py-8 bg-secondary">
+      <section id="who-we-are" className="w-full py-6 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold font-headline text-gray-500 tracking-wider uppercase">
@@ -551,16 +562,16 @@ export default function Home() {
             </div>
             <div className="relative h-[450px]">
               <Image
-                src="https://picsum.photos/seed/whoWeAre1/600/400"
+                src={whoweare}
                 alt="Business meeting with laptops and papers"
-                width={600}
-                height={400}
+                width={400}
+                height={200}
                 className="rounded-2xl shadow-lg object-cover w-full h-full"
                 data-ai-hint="business meeting paperwork"
               />
               <div className="absolute -bottom-8 -left-8 w-48 h-48">
                 <Image
-                  src="https://picsum.photos/seed/whoWeAre2/200/200"
+                  src={whoweare2}
                   alt="Close up of financial documents"
                   width={200}
                   height={200}
@@ -586,7 +597,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="testimonials" className="w-full py-6 md:py-8 bg-background">
+      <section id="testimonials" className="w-full py-6 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold font-headline uppercase">
@@ -640,7 +651,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="cta" className="py-6 md:py-8 bg-background">
+      <section id="cta" className="py-6 bg-background">
         <div className="container mx-auto px-4">
           <div className="glossy-blue-background text-primary-foreground rounded-3xl p-8 md:p-12 text-center">
             <div className="space-y-6 max-w-4xl mx-auto">

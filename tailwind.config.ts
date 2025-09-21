@@ -10,9 +10,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Roboto', 'sans-serif'],
-        headline: ['Raleway', 'sans-serif'],
-        nav: ['Ubuntu', 'sans-serif'],
+        body: ['var(--font-roboto)', 'sans-serif'],
+        headline: ['var(--font-raleway)', 'sans-serif'],
+        nav: ['var(--font-ubuntu)', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2 } from 'lucide-react';
+import aboutus from '../../../public/Image/company-hero-img.jpg';
+import aboutus2 from '../../../public/Image/about-us-img.jpg';
 
 export const metadata: Metadata = {
   title: 'About Us | CACS FinAcc Digital',
@@ -39,7 +41,7 @@ export default function AboutPage() {
             </div>
             <div className="flex justify-center">
               <Image
-                src="https://picsum.photos/seed/aboutHero/600/400"
+                src={aboutus}
                 alt="Business meeting"
                 width={600}
                 height={400}
@@ -81,12 +83,12 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center">
               <Image
-                src="https://picsum.photos/seed/aboutUsImg/500/500"
-                alt="Office discussion"
+                src={aboutus2}
+                alt="Financial documents review"
                 width={500}
-                height={500}
+                height={700}
                 className="rounded-2xl object-cover shadow-lg"
-                data-ai-hint="office discussion"
+                data-ai-hint="financial documents review"
               />
             </div>
             <div className="space-y-6">

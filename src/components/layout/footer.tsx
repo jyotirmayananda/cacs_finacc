@@ -40,7 +40,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
+            <Link href="/" className="flex  mb-4">
               <Image 
                 src={cacslogo} 
                 alt="CACS FinAcc Logo" 

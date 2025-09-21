@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, Building2 } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Accordion,
@@ -17,18 +17,19 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { serviceCategories } from '@/lib/services';
 import cacslogo from '../../../public/Image/cacslogonew.png';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
   {
     href: '#',
     label: 'Services',
     dropdown: true,
     items: serviceCategories,
   },
+  { href: '/about', label: 'Company' },
   { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' },
+  // { href: '/contact', label: 'Contact' },
 ];
 
 export function Header() {
@@ -100,6 +101,7 @@ export function Header() {
               ))}
             </nav>
             <div className="flex items-center gap-2">
+                <ThemeToggle />
                 <Button asChild variant="outline">
                     <Link href="/login">Login</Link>
                 </Button>
@@ -108,7 +110,8 @@ export function Header() {
                 </Button>
             </div>
         </div>
-        <div className="lg:hidden">
+        <div className="lg:hidden flex items-center gap-2">
+          <ThemeToggle />
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -142,7 +145,7 @@ export function Header() {
                     <span className="sr-only">Close menu</span>
                   </Button>
                 </div>
-                <nav className="flex flex-col gap-4">
+                <nav className="flex flex-col gap-12">
                   {navLinks.map((link) =>
                     link.dropdown ? (
                       <Accordion type="single" collapsible key={link.label}>

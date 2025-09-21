@@ -39,12 +39,12 @@ export default function ContactPage() {
             </div>
             <div className="flex justify-center">
               <Image
-                src="https://picsum.photos/seed/contactHero/600/400"
+                src="https://picsum.photos/seed/handshake/600/400"
                 alt="Business meeting handshake"
                 width={600}
                 height={400}
                 className="rounded-2xl shadow-lg"
-                data-ai-hint="business handshake meeting"
+                data-ai-hint="handshake business"
               />
             </div>
           </div>
@@ -80,7 +80,7 @@ export default function ContactPage() {
                   </div>
                   <div className="mt-8">
                      <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.5665853241!2d77.4661248434079!3d12.954294572235223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sus!4v1620229532953!5m2!1sen!2sus"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.5665853241!2d77.4661248434079!3d12.954294572235223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sus!4v1620229532953!5m2!1sen!2sus"
                       width="100%"
                       height="250"
                       style={{ border: 0 }}
