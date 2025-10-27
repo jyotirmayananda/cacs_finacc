@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -88,10 +89,31 @@ export default {
             height: '0',
           },
         },
+        'spin-slow': {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(360deg)' },
+        },
+        'spin-very-slow': {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(-360deg)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'gradient-animation': {
+          '0%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+          '100%': { 'background-position': '0% 50%' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'spin-slow': 'spin-slow 20s linear infinite',
+        'spin-very-slow': 'spin-very-slow 40s linear infinite',
+        'float': 'float 4s ease-in-out infinite',
+        'gradient': 'gradient-animation 10s ease infinite',
       },
       typography: ({ theme }: { theme: (path: string) => string }) => ({
         DEFAULT: {
