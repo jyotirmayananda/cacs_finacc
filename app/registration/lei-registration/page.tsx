@@ -18,7 +18,7 @@ const structure = [
   { char: "8", class: "border" }, { char: "9", class: "border" }, { char: "4", class: "border" }, { char: "5", class: "border" },
   { char: "0", class: "border" }, { char: "0", class: "border" },
   { char: "2", class: "border" }, { char: "7", class: "border" }, { char: "A", class: "border" }, { char: "K", class: "border" },
-  { char: "4", class-name: "border" }, { char: "L", class: "border" }, { char: "S", class: "border" }, { char: "O", class: "border" },
+  { char: "4", class: "border" }, { char: "L", class: "border" }, { char: "S", class: "border" }, { char: "O", class: "border" },
   { char: "G", class: "border" }, { char: "X", class: "border" }, { char: "G", class: "border" }, { char: "Y", class: "border" },
   { char: "1", class: "border" }, { char: "8", class: "border" },
 ];

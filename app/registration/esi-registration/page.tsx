@@ -198,5 +198,4 @@ export default function EsiRegistrationPage() {
       </section>
     </main>
   );
-
-    
+}

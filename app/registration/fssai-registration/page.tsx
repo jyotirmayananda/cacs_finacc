@@ -2,7 +2,7 @@
 'use client';
 
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
-import { QuoteForm } from '@/components/ui/quote-form';
+import { QuoteForm } from '@/components/quote-form';
 import { Phone, Mail } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
