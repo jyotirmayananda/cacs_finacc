@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import whatsapp from '../../public/Image/whatsapp_733585.png';
+import Link from "next/link";
+import Image from "next/image";
+import whatsapp from "../../public/Image/whatsapp_733585.png";
 
 const WhatsAppIcon = () => (
   <svg
@@ -28,20 +28,14 @@ const WhatsAppIcon = () => (
 
 export function WhatsAppButton() {
   return (
-    <Link 
-      href="https://wa.me/9591633648" 
-      target="_blank" 
+    <Link
+      href="https://wa.me/9591633648"
+      target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 p-3 bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition-transform hover:scale-110 active:scale-95"
+      className="fixed bottom-3 right-2 z-50 p-1  rounded-full shadow-lg hover:bg-green-50 transition-transform hover:scale-110 active:scale-95"
       aria-label="Chat on WhatsApp"
     >
-      <Image
-        src={whatsapp}
-                  alt="Whatsapp"
-                  width={30}
-                  height={30}
-                  
-                />
+      <Image src={whatsapp} alt="Whatsapp" width={20} height={20} />
     </Link>
   );
 }

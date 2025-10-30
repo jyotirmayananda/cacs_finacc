@@ -1,9 +1,8 @@
+"use client";
 
-'use client';
-
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 import {
   ArrowRight,
   Briefcase,
@@ -23,80 +22,80 @@ import {
   Fingerprint,
   CheckCircle2,
   Download,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@/components/ui/carousel';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { WelcomePopup } from '@/components/welcome-popup';
-import placeholderImages from '@/lib/placeholder-images.json';
-import { AnimatedQuoteForm } from '@/components/animated-quote-form';
+} from "@/components/ui/carousel";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { WelcomePopup } from "@/components/welcome-popup";
+import placeholderImages from "@/lib/placeholder-images.json";
+import { AnimatedQuoteForm } from "@/components/animated-quote-form";
 import Autoplay from "embla-carousel-autoplay";
+import sliderimg1 from "../../public/Image/income tax filing services.jpg";
+import sliderimg2 from "../../public/Image/Virtual CFO.jpg";
+import sliderimg3 from "../../public/Image/who-we-are-img2.jpg";
+import sliderimg4 from "../../public/Image/accounting & book keeping2.jpg";
+import sliderimg5 from "../../public/Image/strategic tax & wealth advisory2.jpg";
 
 const testimonials = [
   {
-    name: 'Divya S',
-    company: 'HR Manager',
-    avatar: 'DS',
-    text: 'I always found tax filing stressful. CACS FinAcc made it seamless filed in hours, explained every section. Never going elsewhere again.',
+    name: "Divya S",
+    company: "HR Manager",
+    avatar: "DS",
+    text: "I always found tax filing stressful. CACS FinAcc made it seamless filed in hours, explained every section. Never going elsewhere again.",
   },
   {
-    name: 'Shankar Narayan',
-    company: 'Retired Professional',
-    avatar: 'SN',
-    text: 'After selling my flat, I had no Idea about the exemptions. Their advice helped me reinvest smarty and save over $45 lakhs in capital gains tax.',
+    name: "Shankar Narayan",
+    company: "Retired Professional",
+    avatar: "SN",
+    text: "After selling my flat, I had no Idea about the exemptions. Their advice helped me reinvest smarty and save over $45 lakhs in capital gains tax.",
   },
   {
-    name: 'Amit L',
-    company: 'UX Designer: Freelancer',
-    avatar: 'AL',
-    text: 'I work across platforms and had income from multiple sources. CACS sorted it all with precision and helped me claim every eligible deduction.',
+    name: "Amit L",
+    company: "UX Designer: Freelancer",
+    avatar: "AL",
+    text: "I work across platforms and had income from multiple sources. CACS sorted it all with precision and helped me claim every eligible deduction.",
   },
   {
-    name: 'Souparna',
-    company: 'Tech Startup Founder',
-    avatar: 'S',
-    text: 'From incorporation to GST and payroll, they handled it all. As a solo founder, this was a game-changer. Saved time and prevented costly delays.',
+    name: "Souparna",
+    company: "Tech Startup Founder",
+    avatar: "S",
+    text: "From incorporation to GST and payroll, they handled it all. As a solo founder, this was a game-changer. Saved time and prevented costly delays.",
   },
   {
-    name: 'Harish T',
-    company: 'UK-based Engineer',
-    avatar: 'HT',
-    text: 'As an NRI, I had confusion over indian taxation. They filed my returns and also advised on DTAA benefits. Transparent and efficient service.',
+    name: "Harish T",
+    company: "UK-based Engineer",
+    avatar: "HT",
+    text: "As an NRI, I had confusion over indian taxation. They filed my returns and also advised on DTAA benefits. Transparent and efficient service.",
   },
   {
-    name: 'Sneha S',
-    company: 'Co-Founder, Hotel Startup',
-    avatar: 'SS',
-    text: 'Their virtual CFO service helped us fix our cash fiow issues and prepare for investor due diligence.',
+    name: "Sneha S",
+    company: "Co-Founder, Hotel Startup",
+    avatar: "SS",
+    text: "Their virtual CFO service helped us fix our cash fiow issues and prepare for investor due diligence.",
   },
   {
-    name: 'N. S',
-    company: 'HR Manager, Constant Business',
-    avatar: 'NS',
-    text: 'We now have full visibility over our finances. Monthly reporting is consistent and accurate.',
+    name: "N. S",
+    company: "HR Manager, Constant Business",
+    avatar: "NS",
+    text: "We now have full visibility over our finances. Monthly reporting is consistent and accurate.",
   },
   {
-    name: 'M. Rajeev',
-    company: 'Tech Startup',
-    avatar: 'MR',
+    name: "M. Rajeev",
+    company: "Tech Startup",
+    avatar: "MR",
     text: "Saved us time, penalties. and late fees. We're fully compliant thanks to CACS FinAcc.",
   },
   {
-    name: 'Ankita J',
-    company: 'Logistics Company',
-    avatar: 'AJ',
+    name: "Ankita J",
+    company: "Logistics Company",
+    avatar: "AJ",
     text: "All our statutory filings are timely and error-free. I don't need to chase CA firms anymore.",
   },
 ];
@@ -104,104 +103,109 @@ const testimonials = [
 const homeServices = [
   {
     icon: Book,
-    title: 'Online Accounting & Bookkeeping',
+    title: "Online Accounting & Bookkeeping",
   },
   {
     icon: Landmark,
-    title: 'Business Tax Filing Services (Income Tax & GST)',
+    title: "Business Tax Filing Services (Income Tax & GST)",
   },
   {
     icon: Receipt,
-    title: 'TDS Return Filing, Interest Calculation & Form 26Q/24Q Support',
+    title: "TDS Return Filing, Interest Calculation & Form 26Q/24Q Support",
   },
   {
     icon: User,
-    title: 'ITR-1 (Sahaj) Filing Services',
+    title: "ITR-1 (Sahaj) Filing Services",
   },
   {
     icon: FileText,
-    title: 'ITR-2 Filing Services',
+    title: "ITR-2 Filing Services",
   },
   {
     icon: Calculator,
-    title: 'ITR-3 Filing for Professionals & Business Owners',
+    title: "ITR-3 Filing for Professionals & Business Owners",
   },
   {
     icon: FileText,
-    title: 'ITR-4 (Sugam) Presumptive Scheme Filing',
+    title: "ITR-4 (Sugam) Presumptive Scheme Filing",
   },
   {
     icon: Users,
-    title: 'ITR-5 Filing for Firms, LLPs & AOPs',
+    title: "ITR-5 Filing for Firms, LLPs & AOPs",
   },
   {
     icon: Building2,
-    title: 'ITR-6 Filing for Private Limited & Companies',
+    title: "ITR-6 Filing for Private Limited & Companies",
   },
   {
     icon: Lightbulb,
-    title: 'GST Registration, Monthly Filing & ITC Reconciliation',
+    title: "GST Registration, Monthly Filing & ITC Reconciliation",
   },
   {
     icon: FileWarning,
-    title: 'Income Tax Notice Response & Rectification Services',
+    title: "Income Tax Notice Response & Rectification Services",
   },
   {
     icon: Fingerprint,
-    title: 'PAN/TAN Allotment & Digital Signature (DSC) Services',
+    title: "PAN/TAN Allotment & Digital Signature (DSC) Services",
   },
 ];
 
 const sliderItems = [
   {
-    title: 'Hassle-Free ITR Filing for Individuals & Professionals',
-    description: 'Leave the confusion behind. Our experts ensure accurate ITR filing, TDS reconciliation, and Form 26AS matching—on time, every time.',
-    image: placeholderImages.homepage.slider[0],
-    href: 'https://wa.me/9591633648',
+    title: "Hassle-Free ITR Filing for Individuals & Professionals",
+    description:
+      "Leave the confusion behind. Our experts ensure accurate ITR filing, TDS reconciliation, and Form 26AS matching—on time, every time.",
+    image: sliderimg1,
+    href: "https://wa.me/9591633648",
   },
   {
-    title: 'Smart Financial Leadership Without a Full-Time CFO',
-    description: 'Gain CFO-level insights to manage cash flow, investor decks, MIS reports, and financial health — tailored for your startup growth.',
-    image: placeholderImages.homepage.slider[1],
-    href: 'https://wa.me/9591633648',
+    title: "Smart Financial Leadership Without a Full-Time CFO",
+    description:
+      "Gain CFO-level insights to manage cash flow, investor decks, MIS reports, and financial health — tailored for your startup growth.",
+    image: sliderimg2,
+    href: "https://wa.me/9591633648",
   },
   {
-    title: 'Compliance Made Simple for Private Limited & LLPs',
-    description: 'From company registration to annual returns, get full secretarial support under Companies Act, 2013 — with no hidden delays.',
-    image: placeholderImages.homepage.slider[2],
-    href: 'https://wa.me/9591633648',
+    title: "Compliance Made Simple for Private Limited & LLPs",
+    description:
+      "From company registration to annual returns, get full secretarial support under Companies Act, 2013 — with no hidden delays.",
+    image: sliderimg3,
+    href: "https://wa.me/9591633648",
   },
   {
-    title: 'Stay GST Compliant with Professional Bookkeeping',
-    description: 'Ensure timely GSTR filing, maintain accurate ledgers, and get ITC maximized — all handled by dedicated professionals.',
-    image: placeholderImages.homepage.slider[3],
-    href: 'https://wa.me/9591633648',
+    title: "Stay GST Compliant with Professional Bookkeeping",
+    description:
+      "Ensure timely GSTR filing, maintain accurate ledgers, and get ITC maximized — all handled by dedicated professionals.",
+    image: sliderimg4,
+    href: "https://wa.me/9591633648",
   },
   {
-    title: 'Build Wealth with Expert Tax Planning & Advice',
-    description: 'Plan capital gains, reduce tax outflows, and structure your income with high-impact tax-saving strategies led by experts.',
-    image: placeholderImages.homepage.slider[4],
-    href: 'https://wa.me/9591633648',
+    title: "Build Wealth with Expert Tax Planning & Advice",
+    description:
+      "Plan capital gains, reduce tax outflows, and structure your income with high-impact tax-saving strategies led by experts.",
+    image: sliderimg5,
+    href: "https://wa.me/9591633648",
   },
 ];
 
 const whoWeAreServices = [
-  'Full-Spectrum Financial and Tax Advisory – covering tax planning, GST compliance, income tax filing, and strategic tax optimization.',
-  'Internal Audits and Compliance Reviews – strengthening internal controls, managing risks, and ensuring legal compliance.',
-  'Company Formation & Corporate Secretarial Support – handling company registration, LLP incorporation, ROC filings, and MCA compliance.',
-  'Compliance with the Companies Act, 2013, and Other Statutory Requirements – including FEMA labour law, and regulatory filings.',
-  'Financial and Business Restructuring Guidance – assisting with mergers, acquisitions, debt restructuring, and capital optimization.',
+  "Full-Spectrum Financial and Tax Advisory – covering tax planning, GST compliance, income tax filing, and strategic tax optimization.",
+  "Internal Audits and Compliance Reviews – strengthening internal controls, managing risks, and ensuring legal compliance.",
+  "Company Formation & Corporate Secretarial Support – handling company registration, LLP incorporation, ROC filings, and MCA compliance.",
+  "Compliance with the Companies Act, 2013, and Other Statutory Requirements – including FEMA labour law, and regulatory filings.",
+  "Financial and Business Restructuring Guidance – assisting with mergers, acquisitions, debt restructuring, and capital optimization.",
 ];
 
 export default function Home() {
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
 
   React.useEffect(() => {
-    const popupShown = sessionStorage.getItem('popupShown');
+    const popupShown = sessionStorage.getItem("popupShown");
     if (!popupShown) {
       const timer = setTimeout(() => {
         setIsPopupOpen(true);
-        sessionStorage.setItem('popupShown', 'true');
+        sessionStorage.setItem("popupShown", "true");
       }, 1000); // Show popup after 1 second
       return () => clearTimeout(timer);
     }
@@ -209,7 +213,7 @@ export default function Home() {
 
   const plugin = React.useRef(
     Autoplay({ delay: 4000, stopOnInteraction: true })
-  )
+  );
 
   return (
     <div className="flex flex-col">
@@ -218,23 +222,28 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-12">
             <div className="flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
-               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter mb-4 uppercase">
-                 <span className="text-primary">Virtual CFO, NRI Tax & Compliance Services</span>
-                 <br />
-                 <span className="text-foreground">— All in One Place</span>
-               </h1>
-               <p className="mt-4 text-2xl text-muted-foreground max-w-3xl">
-                 We help startups, NRIs & SMEs with taxation, ROC, MIS, financial strategy
-               </p>
-               <div className="flex flex-col sm:flex-row items-center gap-4 mt-8 w-full sm:w-auto justify-center lg:justify-start">
-                 <Button asChild size="lg" className="w-full sm:w-auto">
-                   <Link href="/contact">Contact Us <ArrowRight className="ml-2" /></Link>
-                 </Button>
-               </div>
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter mb-4 uppercase">
+                <span className="text-primary">
+                  Virtual CFO, NRI Tax & Compliance Services
+                </span>
+                <br />
+                <span className="text-foreground">— All in One Place</span>
+              </h1>
+              <p className="mt-4 text-2xl text-muted-foreground max-w-3xl">
+                We help startups, NRIs & SMEs with taxation, ROC, MIS,
+                financial strategy
+              </p>
+              <div className="flex flex-col sm:flex-row items-center gap-4 mt-8 w-full sm:w-auto justify-center lg:justify-start">
+                <Button asChild size="lg" className="w-full sm:w-auto">
+                  <Link href="/contact">
+                    Contact Us <ArrowRight className="ml-2" />
+                  </Link>
+                </Button>
+              </div>
             </div>
 
             <div className="flex items-center justify-center">
-               <div className="w-full max-w-md">
+              <div className="w-full max-w-md">
                 <AnimatedQuoteForm />
               </div>
             </div>
@@ -286,7 +295,7 @@ export default function Home() {
           <Carousel
             plugins={[plugin.current]}
             opts={{
-              align: 'start',
+              align: "start",
               loop: true,
             }}
             className="w-full"
@@ -303,7 +312,7 @@ export default function Home() {
                         alt={item.title}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        data-ai-hint={item.image.hint}
+                        data-ai-hint={item.image}
                       />
                       <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-headline text-white uppercase">
@@ -323,8 +332,6 @@ export default function Home() {
           </Carousel>
         </div>
       </section>
-
-
 
       <section id="who-we-are" className="w-full py-12 md:py-20">
         <div className="container mx-auto px-4">
@@ -376,7 +383,9 @@ export default function Home() {
                   width={200}
                   height={200}
                   className="rounded-2xl shadow-xl border-4 border-white object-cover"
-                  data-ai-hint={placeholderImages.homepage.whoWeAre.secondary.hint}
+                  data-ai-hint={
+                    placeholderImages.homepage.whoWeAre.secondary.hint
+                  }
                 />
               </div>
               <div className="absolute -bottom-8 right-8 bg-blue-600 text-white p-4 rounded-lg shadow-xl text-center">
@@ -397,7 +406,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="testimonials" className="relative w-full py-12 md:py-20 overflow-hidden">
+      <section
+        id="testimonials"
+        className="relative w-full py-12 md:py-20 overflow-hidden"
+      >
         <div className="container mx-auto px-4 relative z-5">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold font-headline uppercase">
@@ -408,18 +420,21 @@ export default function Home() {
             </p>
           </div>
           <div className="relative flex justify-center items-center">
-             <div className="absolute w-[400px] h-[400px] md:w-[600px] md:h-[600px] border rounded-full border-border/50 animate-spin-slow"></div>
-             <div className="absolute w-[500px] h-[500px] md:w-[800px] md:h-[800px] border rounded-full border-border/50 animate-spin-very-slow"></div>
-             <Carousel
+            <div className="absolute w-[400px] h-[400px] md:w-[600px] md:h-[600px] border rounded-full border-border/50 animate-spin-slow"></div>
+            <div className="absolute w-[500px] h-[500px] md:w-[800px] md:h-[800px] border rounded-full border-border/50 animate-spin-very-slow"></div>
+            <Carousel
               opts={{
-                align: 'start',
+                align: "start",
                 loop: true,
               }}
               className="w-full max-w-4xl mx-auto"
             >
               <CarouselContent>
                 {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
+                  <CarouselItem
+                    key={index}
+                    className="md:basis-1/2 lg:basis-1/2"
+                  >
                     <div className="p-1">
                       <Card className="h-full flex flex-col bg-background/80 backdrop-blur-sm">
                         <CardContent className="pt-6 flex-grow flex flex-col justify-between">
@@ -436,7 +451,9 @@ export default function Home() {
                               </AvatarFallback>
                             </Avatar>
                             <div className="ml-4">
-                              <p className="font-semibold">{testimonial.name}</p>
+                              <p className="font-semibold">
+                                {testimonial.name}
+                              </p>
                               <p className="text-sm text-muted-foreground">
                                 {testimonial.company}
                               </p>

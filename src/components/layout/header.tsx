@@ -1,33 +1,32 @@
+"use client";
 
-'use client';
-
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import Image from 'next/image';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import React, { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { cn } from '@/lib/utils';
-import { serviceCategories } from '@/lib/services';
-import { ThemeToggle } from '@/components/theme-toggle';
+} from "@/components/ui/accordion";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
+import { serviceCategories } from "@/lib/services";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navLinks = [
-  { href: '/', label: 'Home' },
+  { href: "/", label: "Home" },
   {
-    href: '#',
-    label: 'Services',
+    href: "#",
+    label: "Services",
     dropdown: true,
     items: serviceCategories,
   },
-  { href: '/about', label: 'Company' },
-  { href: '/blog', label: 'Blog' },
+  { href: "/about", label: "Company" },
+  { href: "/blog", label: "Blog" },
   // { href: '/contact', label: 'Contact' },
 ];
 
@@ -35,20 +34,24 @@ export function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const NavLink = ({
-    href,
-    label,
-  }: {
-    href: string;
-    label: string;
-  }) => {
-    const isActive = pathname === href;
+  const isServicesActive = () => {
+    const path = pathname || "";
+    // Robust match: match /slug or /slug/... (avoid partial matches)
+    return serviceCategories.some((category) => {
+      const re = new RegExp(`/${category.slug}(?:/|$)`);
+      return re.test(path);
+    });
+  };
+
+  const NavLink = ({ href, label }: { href: string; label: string }) => {
+    const isActive =
+      label === "Services" ? isServicesActive() : pathname === href;
     return (
       <Link
         href={href}
         className={cn(
-          'font-nav text-base font-medium transition-colors hover:text-primary',
-          isActive ? 'text-primary' : 'text-foreground'
+          "font-nav text-base font-medium transition-colors hover:text-primary",
+          isActive ? "text-primary" : "text-foreground"
         )}
       >
         {label}
@@ -61,53 +64,63 @@ export function Header() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
-            <Image 
+            <Image
               src="/Image/cacslogonew.png"
-              alt="CACS FinAcc Logo" 
+              alt="CACS FinAcc Logo"
               width={240}
-              height={80} 
+              height={80}
               priority
-              style={{ height: '80px', width: 'auto' }}
+              style={{ height: "80px", width: "auto" }}
             />
           </Link>
         </div>
         <div className="hidden lg:flex items-center gap-6">
-           <nav className="navmenu flex items-center gap-6">
-              {navLinks.map((link) => (
-                link.dropdown ? (
-                  <div key={link.label} className="listing-dropdown relative">
-                    <a href="#" className="flex items-center gap-1 font-nav text-base font-medium transition-colors hover:text-primary">
-                      <span>{link.label}</span>
-                      <ChevronDown className="h-4 w-4" />
-                    </a>
-                    <ul className="w-max">
-                      {link.items?.map(category => (
-                        <li key={category.slug}>
-                          <h3>{category.title}</h3>
-                          {category.services.map(service => (
-                             <Link key={service.slug} href={`/${category.slug}/${service.slug}`}>
-                               <service.icon />
-                               {service.title}
-                             </Link>
-                          ))}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : (
-                  <NavLink key={link.label} {...link} />
-                )
-              ))}
-            </nav>
-            <div className="flex items-center gap-2">
-                <ThemeToggle />
-                <Button asChild variant="outline">
-                    <Link href="/login">Login</Link>
-                </Button>
-                <Button asChild>
-                    <Link href="/signup">Sign Up</Link>
-                </Button>
-            </div>
+          <nav className="navmenu flex items-center gap-6">
+            {navLinks.map((link) =>
+              link.dropdown ? (
+                <div key={link.label} className="listing-dropdown relative">
+                  <a
+                    href="#"
+                    data-active={isServicesActive()}
+                    className={cn(
+                      "flex items-center gap-1 font-nav text-base font-medium transition-colors hover:text-primary",
+                      isServicesActive() ? "text-primary" : "text-foreground"
+                    )}
+                  >
+                    <span>{link.label}</span>
+                    <ChevronDown className="h-4 w-4" />
+                  </a>
+                  <ul className="w-max">
+                    {link.items?.map((category) => (
+                      <li key={category.slug}>
+                        <h3>{category.title}</h3>
+                        {category.services.map((service) => (
+                          <Link
+                            key={service.slug}
+                            href={`/${category.slug}/${service.slug}`}
+                          >
+                            <service.icon />
+                            {service.title}
+                          </Link>
+                        ))}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <NavLink key={link.label} {...link} />
+              )
+            )}
+          </nav>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Button asChild variant="outline">
+              <Link href="/login">Login</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/signup">Sign Up</Link>
+            </Button>
+          </div>
         </div>
         <div className="lg:hidden flex items-center gap-2">
           <ThemeToggle />
@@ -118,7 +131,10 @@ export function Header() {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
+            <SheetContent
+              side="right"
+              className="w-[300px] sm:w-[400px] overflow-y-auto"
+            >
               <div className="p-4">
                 <div className="flex justify-between items-center mb-6">
                   <Link
@@ -126,13 +142,13 @@ export function Header() {
                     className="flex items-center gap-2"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <Image 
+                    <Image
                       src="/Image/cacslogonew.png"
-                      alt="CACS FinAcc Logo" 
+                      alt="CACS FinAcc Logo"
                       width={240}
-                      height={80} 
+                      height={80}
                       priority
-                      style={{ height: '80px', width: 'auto' }}
+                      style={{ height: "80px", width: "auto" }}
                     />
                   </Link>
                   <Button
@@ -149,30 +165,36 @@ export function Header() {
                     link.dropdown ? (
                       <Accordion type="single" collapsible key={link.label}>
                         <AccordionItem value="services" className="border-b-0">
-                           <AccordionTrigger className="font-nav text-lg font-medium hover:no-underline hover:text-primary [&[data-state=open]]:text-primary">
+                          <AccordionTrigger
+                            data-active={isServicesActive()}
+                            className={cn(
+                              "font-nav text-lg font-medium hover:no-underline hover:text-primary [&[data-state=open]]:text-primary",
+                              isServicesActive() ? "text-primary" : ""
+                            )}
+                          >
                             {link.label}
                           </AccordionTrigger>
                           <AccordionContent>
-                             {link.items?.map((category) => (
-                                <div key={category.slug} className="mb-4">
-                                  <h5 className="font-semibold mb-2 pl-4 text-primary">
-                                    {category.title}
-                                  </h5>
-                                  <div className="flex flex-col gap-3 pl-8">
-                                    {category.services.map((item) => (
-                                      <Link
-                                        key={item.slug}
-                                        href={`/${category.slug}/${item.slug}`}
-                                        className="flex items-center gap-2 text-muted-foreground hover:text-primary"
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                      >
-                                        <item.icon className="h-4 w-4" />
-                                        <span>{item.title}</span>
-                                      </Link>
-                                    ))}
-                                  </div>
+                            {link.items?.map((category) => (
+                              <div key={category.slug} className="mb-4">
+                                <h5 className="font-semibold mb-2 pl-4 text-primary">
+                                  {category.title}
+                                </h5>
+                                <div className="flex flex-col gap-3 pl-8">
+                                  {category.services.map((item) => (
+                                    <Link
+                                      key={item.slug}
+                                      href={`/${category.slug}/${item.slug}`}
+                                      className="flex items-center gap-2 text-muted-foreground hover:text-primary"
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                      <item.icon className="h-4 w-4" />
+                                      <span>{item.title}</span>
+                                    </Link>
+                                  ))}
                                 </div>
-                              ))}
+                              </div>
+                            ))}
                           </AccordionContent>
                         </AccordionItem>
                       </Accordion>
@@ -181,10 +203,10 @@ export function Header() {
                         key={link.href}
                         href={link.href}
                         className={cn(
-                          'font-nav text-lg font-medium transition-colors hover:text-primary py-2',
+                          "font-nav text-lg font-medium transition-colors hover:text-primary py-2",
                           pathname === link.href
-                            ? 'text-primary'
-                            : 'text-foreground'
+                            ? "text-primary"
+                            : "text-foreground"
                         )}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
@@ -219,5 +241,3 @@ export function Header() {
     </header>
   );
 }
-
-    

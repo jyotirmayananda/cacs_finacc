@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -90,7 +89,7 @@
     );
     animation: gradient-animation 10s ease-in-out infinite alternate;
   }
-  
+
   body::before {
     content: "";
     position: fixed;
@@ -105,20 +104,36 @@
     animation: gradient-animation 10s ease-in-out infinite alternate;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-headline;
+  }
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
 @layer utilities {
   .glossy-blue-background {
-    background: linear-gradient(270deg, #002b8f, #1ea2ff, #0D6EFD);
+    background: linear-gradient(270deg, #002b8f, #1ea2ff, #0d6efd);
     background-size: 200% 200%;
     border: none;
     animation: gradient-animation 10s ease infinite;
   }
 }
-
 
 /* Listing Dropdown - Desktop */
 @media (min-width: 1200px) {
