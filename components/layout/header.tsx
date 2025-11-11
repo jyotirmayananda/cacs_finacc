@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -33,6 +34,14 @@ const navLinks = [
 export function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme } = useTheme();
+  const [logoSrc, setLogoSrc] = useState("/Image/cacslogonew.png");
+
+  useEffect(() => {
+    setLogoSrc(
+      theme === "dark" ? "/Image/darklogo.png" : "/Image/cacslogonew.png"
+    );
+  }, [theme]);
 
   const isServicesActive = () => {
     const path = pathname || "";
@@ -65,7 +74,7 @@ export function Header() {
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/Image/cacslogonew.png"
+              src={logoSrc}
               alt="CACS FinAcc Logo"
               width={240}
               height={80}
@@ -143,7 +152,7 @@ export function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <Image
-                      src="/Image/cacslogonew.png"
+                      src={logoSrc}
                       alt="CACS FinAcc Logo"
                       width={240}
                       height={80}

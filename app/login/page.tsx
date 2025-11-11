@@ -86,6 +86,20 @@ export default function LoginPage() {
           title: "Login Successful!",
           description: "Welcome back!",
         });
+
+        // Send login notification email
+        await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: values.email,
+            subject: 'Login Successful - CACS FinAcc',
+            message: `Dear User,<br><br>You have successfully logged in to your CACS FinAcc Dashboard.<br><br>If this was not you, please contact us immediately.<br><br>Warm regards,<br>CACS FinAcc Team`,
+          }),
+        });
+
         window.location.href = "/";
       } else {
         toast({

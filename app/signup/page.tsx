@@ -94,6 +94,21 @@ export default function SignupPage() {
           title: "Signup Successful!",
           description: "Please check your email for a welcome message.",
         });
+
+        // Send welcome email
+        await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: values.fullName,
+            email: values.email,
+            subject: 'Welcome to CACS FinAcc – Your Account Is Ready!',
+            message: `Dear ${values.fullName},<br><br>Thank you for joining CACS FinAcc, your trusted partner for professional accounting and financial management solutions.<br><br>Your account has been successfully created. Please click the verification link below to activate your profile and access your personalized client dashboard.<br><br>🔗 <a href="https://cacsfinaccservices.com/verify?token=SOME_TOKEN">Verify My Account</a><br><br>Once verified, you can log in anytime to track financial reports, access statements, and connect with your advisor securely.<br><br>Warm regards,<br>CACS FinAcc Team<br>https://cacsfinaccservices.com<br>info@cacsfinaccservices.com`,
+          }),
+        });
+
         window.location.href = "/login";
       } else {
         toast({
