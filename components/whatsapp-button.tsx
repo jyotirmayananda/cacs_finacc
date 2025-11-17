@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import whatsapp from "../../public/Image/whatsapp_733585.png";
 
 const WhatsAppIcon = () => (
   <svg
@@ -35,7 +34,7 @@ export function WhatsAppButton() {
       className="fixed bottom-3 right-2 z-50 p-1  rounded-full shadow-lg hover:bg-green-50 transition-transform hover:scale-110 active:scale-95"
       aria-label="Chat on WhatsApp"
     >
-      <Image src={whatsapp} alt="Whatsapp" width={20} height={20} />
+      <Image src="/Image/whatsapp_733585.png" alt="Whatsapp" width={50} height={50} />
     </Link>
   );
 }

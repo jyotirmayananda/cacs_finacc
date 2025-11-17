@@ -74,13 +74,62 @@ export function QuoteForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof quoteFormSchema>) {
-    console.log(values);
-    toast({
-      title: 'Quote Request Sent!',
-      description: 'Thank you! We will get back to you with a quote shortly.',
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof quoteFormSchema>) {
+    try {
+      // Send email to admin
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${values.firstName} ${values.lastName}`,
+          email: process.env.NEXT_PUBLIC_EMAIL_USER, // Sending to admin
+          subject: 'New Quote Request',
+          message: `
+            <p>You have a new quote request:</p>
+            <ul>
+              <li>Name: ${values.firstName} ${values.lastName}</li>
+              <li>Email: ${values.email}</li>
+              <li>Mobile: ${values.mobile}</li>
+              <li>City: ${values.city}</li>
+              <li>Service: ${values.service}</li>
+            </ul>
+          `,
+        }),
+      });
+
+      // Send confirmation email to user
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${values.firstName} ${values.lastName}`,
+          email: values.email, // Sending to user
+          subject: 'Your Quote Request has been received',
+          message: `
+            <h1>Hi, ${values.firstName}!</h1>
+            <p>Thank you for your quote request. We will get back to you shortly.</p>
+            <p><b>Service Requested:</b> ${values.service}</p>
+          `,
+        }),
+      });
+
+      toast({
+        title: 'Quote Request Sent!',
+        description: 'Thank you! We will get back to you with a quote shortly.',
+      });
+      form.reset();
+    } catch (error) {
+      console.error('Failed to send email', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to send your request. Please try again later.',
+        variant: 'destructive',
+      });
+    }
   }
 
   return (

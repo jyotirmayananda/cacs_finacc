@@ -27,6 +27,26 @@ export async function POST(req: NextRequest) {
       createdAt: new Date(),
     });
 
+    // Send welcome email
+    const emailSubject = 'Welcome to CACS';
+    const emailMessage = `
+      <h1>Welcome, ${fullName}!</h1>
+      <p>Thank you for signing up. We are excited to have you on board.</p>
+    `;
+
+    await fetch(new URL('/api/send-email', req.url), {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: fullName,
+        email: email,
+        subject: emailSubject,
+        message: emailMessage,
+      }),
+    });
+
     return NextResponse.json({ message: 'User created successfully.' }, { status: 201 });
   } catch (error) {
     console.error('Signup error:', error);

@@ -15,10 +15,7 @@ export function AnimatedQuoteForm() {
       <div className="absolute w-[450px] h-[450px] border rounded-full border-border animate-spin-slow">
         <div className="absolute top-1/2 right-0 w-2 h-2 bg-primary rounded-full translate-x-1/2 -translate-y-1/2"></div>
       </div>
-      <div className="absolute w-[550px] h-[550px] border rounded-full border-border animate-spin-slow">
-        <div className="absolute top-1/2 right-0 w-3 h-3 bg-primary rounded-full translate-x-1/2 -translate-y-1/2"></div>
-      </div>
-
+      
       <div className="z-10 bg-card/50 rounded-3xl shadow-2xl animate-float backdrop-blur-sm">
         <QuoteForm />
       </div>

@@ -28,6 +28,26 @@ export async function POST(req: NextRequest) {
       expiresIn: '1h',
     });
 
+    // Send login notification email
+    const emailSubject = 'New Login to Your Account';
+    const emailMessage = `
+      <h1>Hi, ${user.fullName}!</h1>
+      <p>We detected a new login to your account. If this was you, you can safely ignore this email.</p>
+    `;
+
+    await fetch(new URL('/api/send-email', req.url), {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: user.fullName,
+        email: user.email,
+        subject: emailSubject,
+        message: emailMessage,
+      }),
+    });
+
     return NextResponse.json({ token, user: { email: user.email, fullName: user.fullName } }, { status: 200 });
   } catch (error) {
     console.error('Login error:', error);
