@@ -32,10 +32,14 @@ export function WhatsAppButton() {
       href="https://wa.me/9591633648"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-3 right-2 z-50 p-1  rounded-full shadow-lg hover:bg-green-50 transition-transform hover:scale-110 active:scale-95"
       aria-label="Chat on WhatsApp"
+      className={
+        "fixed bottom-6 right-6 z-50 p-3 bg-emerald-600 text-white rounded-full shadow-lg transition-transform hover:scale-110 active:scale-95 " +
+        // keep same placement on larger screens but ensure it doesn't take extra layout space on small screens
+        "sm:bottom-6 sm:right-6 lg:bottom-3 lg:right-2"
+      }
     >
-      <Image src={whatsapp} alt="Whatsapp" width={50} height={30} />
+      <WhatsAppIcon />
     </Link>
   );
 }

@@ -156,7 +156,7 @@ export default function ContactPage() {
             <div className="flex flex-col text-center lg:text-left items-center lg:items-start">
               <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight uppercase">
                 <span className="text-primary">
-                  Virtual CFO, NRI Tax & Compliance Services
+                  Virtual CFO, NRI Tax & Compliance
                 </span>
                 <br />
                 <span className="text-foreground">— All in One Place</span>

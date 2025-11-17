@@ -224,14 +224,14 @@ export default function Home() {
             <div className="flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter mb-4 uppercase">
                 <span className="text-primary">
-                  Virtual CFO, NRI Tax & Compliance Services
+                  Virtual CFO, NRI Tax & Compliance
                 </span>
                 <br />
                 <span className="text-foreground">— All in One Place</span>
               </h1>
               <p className="mt-4 text-2xl text-muted-foreground max-w-3xl">
-                We help startups, NRIs & SMEs with taxation, ROC, MIS,
-                financial strategy
+                Helping Startups, NRIs & SMEs with Taxation, ROC, MIS &
+                Financial Strategy.
               </p>
               <div className="flex flex-col sm:flex-row items-center gap-4 mt-8 w-full sm:w-auto justify-center lg:justify-start">
                 <Button asChild size="lg" className="w-full sm:w-auto">
@@ -336,7 +336,7 @@ export default function Home() {
       <section id="who-we-are" className="w-full py-12 md:py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline text-gray-500 tracking-wider uppercase">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-gray-500 dark:text-white tracking-wider uppercase">
               WHO WE ARE
             </h2>
           </div>
