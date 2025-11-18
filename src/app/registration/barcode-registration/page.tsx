@@ -1,10 +1,9 @@
+"use client";
 
-'use client';
-
-import { Breadcrumbs } from '@/components/ui/breadcrumbs';
-import { QuoteForm } from '@/components/ui/quote-form';
-import { Phone, Mail, CheckCircle2 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { QuoteForm } from "@/components/quote-form";
+import { Phone, Mail, CheckCircle2 } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const whoNeedsIt = [
   "Manufacturers: To uniquely identify products and manage inventory efficiently.",
@@ -14,14 +13,22 @@ const whoNeedsIt = [
 ];
 
 const barcodeTypes = [
-    { title: "EAN-13", description: "Known as the International Article Number, which was formerly referred to as the European Article Number, the EAN-13 is a 13-digit barcode extensively used in Europe, India, and other countries. It plays a crucial role in the global retail supply chain, facilitating efficient product tracking and identification." },
-    { title: "UPC-A", description: "The Universal Product Code (UPC-A) is a 12-digit barcode widely used in the United States, Canada, the United Kingdom, Australia, and New Zealand. It is essential for standardizing and tracking retail products across these nations." },
+  {
+    title: "EAN-13",
+    description:
+      "Known as the International Article Number, which was formerly referred to as the European Article Number, the EAN-13 is a 13-digit barcode extensively used in Europe, India, and other countries. It plays a crucial role in the global retail supply chain, facilitating efficient product tracking and identification.",
+  },
+  {
+    title: "UPC-A",
+    description:
+      "The Universal Product Code (UPC-A) is a 12-digit barcode widely used in the United States, Canada, the United Kingdom, Australia, and New Zealand. It is essential for standardizing and tracking retail products across these nations.",
+  },
 ];
 
 const businessUses = [
-    "Inventory management: Large departmental stores with extensive product lines use barcode systems to track all aspects of the product cycle, from manufacturing to sales.",
-    "Asset tracking: With the significant amount of IT assets businesses holds today, barcodes are used to tag and track assets in asset software.",
-    "Returns tracking: In online shopping, barcodes can be used to track returns. They can also be attached to invoices to facilitate the tracking of payments from customers.",
+  "Inventory management: Large departmental stores with extensive product lines use barcode systems to track all aspects of the product cycle, from manufacturing to sales.",
+  "Asset tracking: With the significant amount of IT assets businesses holds today, barcodes are used to tag and track assets in asset software.",
+  "Returns tracking: In online shopping, barcodes can be used to track returns. They can also be attached to invoices to facilitate the tracking of payments from customers.",
 ];
 
 const requiredDocs = [
@@ -57,9 +64,9 @@ const whyChooseUs = [
 ];
 
 const feeFactors = [
-    "Turnover of the company: Companies with a higher turnover may be required to pay higher barcode registration fees.",
-    "Number of barcodes required: The fees may also depend on the number of barcodes that must be registered.",
-    "Subscription period: The fees may vary based on the subscription period for which the barcodes are being registered.",
+  "Turnover of the company: Companies with a higher turnover may be required to pay higher barcode registration fees.",
+  "Number of barcodes required: The fees may also depend on the number of barcodes that must be registered.",
+  "Subscription period: The fees may vary based on the subscription period for which the barcodes are being registered.",
 ];
 
 export default function BarcodeRegistrationPage() {
@@ -69,9 +76,9 @@ export default function BarcodeRegistrationPage() {
         <div className="container mx-auto px-4">
           <Breadcrumbs
             items={[
-              { label: 'Home', href: '/' },
-              { label: 'Registration', href: '/registration' },
-              { label: 'Barcode Registration' },
+              { label: "Home", href: "/" },
+              { label: "Registration", href: "/registration" },
+              { label: "Barcode Registration" },
             ]}
           />
         </div>
@@ -87,20 +94,40 @@ export default function BarcodeRegistrationPage() {
 
               <div>
                 <p className="text-muted-foreground text-justify">
-                  A barcode is a pattern of parallel lines of varying width and spacing, along with digits; a machine can read that. It quickly encodes and identifies important product details such as product numbers, serial numbers, and batch numbers.
+                  A barcode is a pattern of parallel lines of varying width and
+                  spacing, along with digits; a machine can read that. It
+                  quickly encodes and identifies important product details such
+                  as product numbers, serial numbers, and batch numbers.
                 </p>
                 <p className="text-muted-foreground text-justify mt-4">
-                  Barcodes are widely used for efficient product identification in various industries, including supermarkets, clothing stores, and malls. They offer many advantages, such as reducing errors, cost-effectiveness, time-saving, and simplified inventory management. This global identification system benefits all parties in the supply chain, from manufacturers to logistics and wholesalers, by providing an easy and accurate way to identify products.
+                  Barcodes are widely used for efficient product identification
+                  in various industries, including supermarkets, clothing
+                  stores, and malls. They offer many advantages, such as
+                  reducing errors, cost-effectiveness, time-saving, and
+                  simplified inventory management. This global identification
+                  system benefits all parties in the supply chain, from
+                  manufacturers to logistics and wholesalers, by providing an
+                  easy and accurate way to identify products.
                 </p>
                 <p className="text-muted-foreground text-justify mt-4">
-                  Barcode registration is essential for businesses aiming to streamline inventory management, enhance product traceability, and comply with retail and e-commerce standards. In India, GS1 India is the authorized body responsible for issuing globally recognized barcodes.
+                  Barcode registration is essential for businesses aiming to
+                  streamline inventory management, enhance product traceability,
+                  and comply with retail and e-commerce standards. In India, GS1
+                  India is the authorized body responsible for issuing globally
+                  recognized barcodes.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">How Do Businesses Use Barcodes?</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  How Do Businesses Use Barcodes?
+                </h2>
                 <p className="text-muted-foreground text-justify mb-4">
-                    Barcodes are a widely used technology that provides a unique symbol, typically consisting of parallel lines and a number, which can be scanned to retrieve product information from a database. Businesses utilize barcodes in several ways, including:
+                  Barcodes are a widely used technology that provides a unique
+                  symbol, typically consisting of parallel lines and a number,
+                  which can be scanned to retrieve product information from a
+                  database. Businesses utilize barcodes in several ways,
+                  including:
                 </p>
                 <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
                   {businessUses.map((item, index) => (
@@ -110,22 +137,29 @@ export default function BarcodeRegistrationPage() {
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">Types of Barcodes</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  Types of Barcodes
+                </h2>
                 <p className="text-muted-foreground text-justify mb-4">
-                  Below, we explore various types of barcodes commonly used in different industries and applications:
+                  Below, we explore various types of barcodes commonly used in
+                  different industries and applications:
                 </p>
                 <ul className="space-y-4">
-                    {barcodeTypes.map((type, index) => (
-                        <li key={index}>
-                            <p className="font-semibold">{type.title}</p>
-                            <p className="text-muted-foreground text-justify">{type.description}</p>
-                        </li>
-                    ))}
+                  {barcodeTypes.map((type, index) => (
+                    <li key={index}>
+                      <p className="font-semibold">{type.title}</p>
+                      <p className="text-muted-foreground text-justify">
+                        {type.description}
+                      </p>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">Who Needs Barcode Registration?</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  Who Needs Barcode Registration?
+                </h2>
                 <p className="text-muted-foreground text-justify mb-4">
                   Barcode registration is crucial for:
                 </p>
@@ -137,9 +171,12 @@ export default function BarcodeRegistrationPage() {
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">Documents Required for Barcode Registration</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  Documents Required for Barcode Registration
+                </h2>
                 <p className="text-muted-foreground text-justify mb-4">
-                  To apply for barcode registration, the following documents are typically required:
+                  To apply for barcode registration, the following documents are
+                  typically required:
                 </p>
                 <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
                   {requiredDocs.map((doc, index) => (
@@ -149,34 +186,45 @@ export default function BarcodeRegistrationPage() {
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">Barcode Registration Process</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  Barcode Registration Process
+                </h2>
                 <ol className="space-y-3 list-decimal pl-5 text-muted-foreground">
                   {registrationSteps.map((step, index) => (
                     <li key={index}>{step}</li>
                   ))}
                 </ol>
                 <p className="text-muted-foreground text-justify mt-4">
-                    The registration process typically takes 7-10 working days after submitting the application and necessary documents.
+                  The registration process typically takes 7-10 working days
+                  after submitting the application and necessary documents.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">Barcode registration Fees</h2>
-                 <p className="text-muted-foreground text-justify mb-4">
-                    Please note that the barcode registration fees may vary depending on the specific registration authority and the type of barcode being registered. However, in general, the fees are usually determined based on the following factors:
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  Barcode registration Fees
+                </h2>
+                <p className="text-muted-foreground text-justify mb-4">
+                  Please note that the barcode registration fees may vary
+                  depending on the specific registration authority and the type
+                  of barcode being registered. However, in general, the fees are
+                  usually determined based on the following factors:
                 </p>
-                 <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
+                <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
                   {feeFactors.map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
                 </ul>
-                 <p className="text-muted-foreground text-justify mt-4">
-                    Based on these factors, the fees for barcode registration in India can vary.
+                <p className="text-muted-foreground text-justify mt-4">
+                  Based on these factors, the fees for barcode registration in
+                  India can vary.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">Benefits of Barcode Registration</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  Benefits of Barcode Registration
+                </h2>
                 <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
                   {benefits.map((benefit, index) => (
                     <li key={index}>{benefit}</li>
@@ -185,7 +233,9 @@ export default function BarcodeRegistrationPage() {
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">Why Choose CACSFinacc for Your Barcode Registration?</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  Why Choose CACSFinacc for Your Barcode Registration?
+                </h2>
                 <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
                   {whyChooseUs.map((reason, index) => (
                     <li key={index}>{reason}</li>
@@ -193,7 +243,7 @@ export default function BarcodeRegistrationPage() {
                 </ul>
               </div>
             </div>
-            
+
             <aside className="space-y-8">
               <QuoteForm />
               <Card className="bg-secondary">
@@ -201,7 +251,9 @@ export default function BarcodeRegistrationPage() {
                   <div className="bg-primary text-primary-foreground rounded-full p-3">
                     <Phone className="h-8 w-8" />
                   </div>
-                  <CardTitle className="font-headline text-2xl mt-2">Have a Question?</CardTitle>
+                  <CardTitle className="font-headline text-2xl mt-2">
+                    Have a Question?
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="flex items-center justify-center gap-2 mt-2 mb-1">
@@ -210,7 +262,10 @@ export default function BarcodeRegistrationPage() {
                   </p>
                   <p className="flex items-center justify-center gap-2">
                     <Mail className="h-4 w-4" />
-                    <a href="mailto:info@cacsfinaccservices.com" className="hover:text-primary">
+                    <a
+                      href="mailto:info@cacsfinaccservices.com"
+                      className="hover:text-primary"
+                    >
                       info@cacsfinaccservices.com
                     </a>
                   </p>
@@ -223,4 +278,3 @@ export default function BarcodeRegistrationPage() {
     </main>
   );
 }
-

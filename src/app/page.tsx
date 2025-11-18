@@ -26,6 +26,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
   Carousel,
   CarouselContent,
   CarouselItem,
@@ -199,6 +204,7 @@ const whoWeAreServices = [
 
 export default function Home() {
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
+  const [isQuoteFormPopupOpen, setIsQuoteFormPopupOpen] = React.useState(false);
 
   React.useEffect(() => {
     const popupShown = sessionStorage.getItem("popupShown");
@@ -485,14 +491,23 @@ export default function Home() {
                 focus on growing your business.
               </p>
               <div className="pt-4">
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary rounded-full px-8 py-6 text-lg font-semibold"
+                <Dialog
+                  open={isQuoteFormPopupOpen}
+                  onOpenChange={setIsQuoteFormPopupOpen}
                 >
-                  <Link href="/contact">Book a Free Consultation</Link>
-                </Button>
+                  <DialogTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary rounded-full px-8 py-6 text-lg font-semibold"
+                    >
+                      Book a Free Consultation
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-md">
+                    <AnimatedQuoteForm />
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
           </div>

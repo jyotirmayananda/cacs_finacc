@@ -1,15 +1,25 @@
+"use client";
 
-'use client';
-
-import { Breadcrumbs } from '@/components/ui/breadcrumbs';
-import { QuoteForm } from '@/components/quote-form';
-import { Phone, Mail, CheckCircle2 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { QuoteForm } from "@/components/quote-form";
+import { Phone, Mail, CheckCircle2 } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const whoNeedsIt = [
-  { title: "Employee Count:", description: "Employs 10 or more persons (20 in some states)." },
-  { title: "Wage Limit:", description: "Employees earning up to ₹21,000 per month (₹25,000 for persons with disabilities)." },
-  { title: "Applicable Entities:", description: "Factories, shops, hotels, restaurants, cinemas, road transport businesses, educational institutions, and medical institutions." },
+  {
+    title: "Employee Count:",
+    description: "Employs 10 or more persons (20 in some states).",
+  },
+  {
+    title: "Wage Limit:",
+    description:
+      "Employees earning up to ₹21,000 per month (₹25,000 for persons with disabilities).",
+  },
+  {
+    title: "Applicable Entities:",
+    description:
+      "Factories, shops, hotels, restaurants, cinemas, road transport businesses, educational institutions, and medical institutions.",
+  },
 ];
 
 const requiredDocs = [
@@ -33,25 +43,25 @@ const registrationSteps = [
 ];
 
 const contributionRates = [
-    "Employer Contribution: 3.25% of the employee's wages.",
-    "Employee Contribution: 0.75% of their wages.",
-    "Employees earning less than ₹176 per day are exempt from contributing.",
+  "Employer Contribution: 3.25% of the employee's wages.",
+  "Employee Contribution: 0.75% of their wages.",
+  "Employees earning less than ₹176 per day are exempt from contributing.",
 ];
 
 const benefits = [
-    "Medical Benefits: Full medical care for employees and their families.",
-    "Sickness Benefits: 70% of wages during certified sickness for up to 91 days annually.",
-    "Maternity Benefits: Full wages for 26 weeks during maternity leave.",
-    "Disability Benefits: 90% of wages in case of temporary or permanent disability.",
-    "Dependents' Benefits: Monthly payments to dependents of deceased employees.",
-    "Funeral Expenses: ₹15,000 provided to the dependents for funeral costs.",
+  "Medical Benefits: Full medical care for employees and their families.",
+  "Sickness Benefits: 70% of wages during certified sickness for up to 91 days annually.",
+  "Maternity Benefits: Full wages for 26 weeks during maternity leave.",
+  "Disability Benefits: 90% of wages in case of temporary or permanent disability.",
+  "Dependents' Benefits: Monthly payments to dependents of deceased employees.",
+  "Funeral Expenses: ₹15,000 provided to the dependents for funeral costs.",
 ];
 
 const postRegistrationCompliance = [
-    "Maintain Registers: Attendance, wages, and accident registers.",
-    "Monthly Contributions: Deposit ESI contributions by the 15th of the following month.",
-    "Filing Returns: Submit half-yearly returns in Form 5.",
-    "Display ESI Information: At conspicuous places within the premises.",
+  "Maintain Registers: Attendance, wages, and accident registers.",
+  "Monthly Contributions: Deposit ESI contributions by the 15th of the following month.",
+  "Filing Returns: Submit half-yearly returns in Form 5.",
+  "Display ESI Information: At conspicuous places within the premises.",
 ];
 
 const whyChooseUs = [
@@ -68,9 +78,9 @@ export default function EsiRegistrationPage() {
         <div className="container mx-auto px-4">
           <Breadcrumbs
             items={[
-              { label: 'Home', href: '/' },
-              { label: 'Registration', href: '/registration' },
-              { label: 'ESI Registration' },
+              { label: "Home", href: "/" },
+              { label: "Registration", href: "/registration" },
+              { label: "ESI Registration" },
             ]}
           />
         </div>
@@ -85,83 +95,116 @@ export default function EsiRegistrationPage() {
               </h1>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">What is ESI Registration?</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  What is ESI Registration?
+                </h2>
                 <p className="text-muted-foreground text-justify">
-                  Employees' State Insurance (ESI) is a social security scheme under the Employees' State Insurance Act, 1948, providing medical, monetary, and other benefits to employees. Managed by the Employees' State Insurance Corporation (ESIC), this scheme ensures workers are protected against financial distress arising from sickness, maternity, disability, or death due to employment injuries.
+                  Employees' State Insurance (ESI) is a social security scheme
+                  under the Employees' State Insurance Act, 1948, providing
+                  medical, monetary, and other benefits to employees. Managed by
+                  the Employees' State Insurance Corporation (ESIC), this scheme
+                  ensures workers are protected against financial distress
+                  arising from sickness, maternity, disability, or death due to
+                  employment injuries.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">Who Needs ESI Registration?</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  Who Needs ESI Registration?
+                </h2>
                 <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
                   {whoNeedsIt.map((item, index) => (
-                    <li key={index}><strong>{item.title}</strong> {item.description}</li>
+                    <li key={index}>
+                      <strong>{item.title}</strong> {item.description}
+                    </li>
                   ))}
                 </ul>
                 <p className="text-muted-foreground text-justify mt-4 text-sm">
-                  <em>Note: The threshold varies by state; for instance, in Karnataka, the limit is 10 employees.</em>
+                  <em>
+                    Note: The threshold varies by state; for instance, in
+                    Karnataka, the limit is 10 employees.
+                  </em>
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">Documents Required for ESI Registration</h2>
-                 <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  Documents Required for ESI Registration
+                </h2>
+                <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
                   {requiredDocs.map((doc, index) => (
                     <li key={index}>{doc}</li>
                   ))}
                 </ul>
                 <p className="text-muted-foreground text-justify mt-4">
-                  Ensure all documents are clear and legible to avoid delays in processing.
+                  Ensure all documents are clear and legible to avoid delays in
+                  processing.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">ESI Registration Process</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  ESI Registration Process
+                </h2>
                 <ol className="space-y-3 list-decimal pl-5 text-muted-foreground">
                   {registrationSteps.map((step, index) => (
                     <li key={index}>{step}</li>
                   ))}
                 </ol>
                 <p className="text-muted-foreground text-justify mt-4">
-                    The registration process typically takes 7-15 working days, depending on the completeness of the application and the response from ESIC authorities.
+                  The registration process typically takes 7-15 working days,
+                  depending on the completeness of the application and the
+                  response from ESIC authorities.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">Contribution Rates</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  Contribution Rates
+                </h2>
                 <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
-                    {contributionRates.map((rate, index) => (
-                        <li key={index}>{rate}</li>
-                    ))}
+                  {contributionRates.map((rate, index) => (
+                    <li key={index}>{rate}</li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">Benefits of ESI Registration</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  Benefits of ESI Registration
+                </h2>
                 <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
-                    {benefits.map((benefit, index) => (
-                        <li key={index}>{benefit}</li>
-                    ))}
-                </ul>
-                <p className="text-muted-foreground text-justify mt-4">
-                  These benefits ensure social security and financial stability for employees and their families.
-                </p>
-              </div>
-              
-              <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">Post-Registration Compliance</h2>
-                <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
-                    {postRegistrationCompliance.map((compliance, index) => (
-                        <li key={index}>{compliance}</li>
-                    ))}
+                  {benefits.map((benefit, index) => (
+                    <li key={index}>{benefit}</li>
+                  ))}
                 </ul>
                 <p className="text-muted-foreground text-justify mt-4">
-                  Non-compliance can lead to penalties, including interest at 12% per annum and damages up to 25% of the contribution amount.
+                  These benefits ensure social security and financial stability
+                  for employees and their families.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">Why Choose CACSFinacc for Your ESI Registration?</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  Post-Registration Compliance
+                </h2>
+                <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
+                  {postRegistrationCompliance.map((compliance, index) => (
+                    <li key={index}>{compliance}</li>
+                  ))}
+                </ul>
+                <p className="text-muted-foreground text-justify mt-4">
+                  Non-compliance can lead to penalties, including interest at
+                  12% per annum and damages up to 25% of the contribution
+                  amount.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-2xl font-bold font-headline mb-4 text-primary">
+                  Why Choose CACSFinacc for Your ESI Registration?
+                </h2>
                 <ul className="space-y-3 pl-5 list-disc text-muted-foreground">
                   {whyChooseUs.map((reason, index) => (
                     <li key={index}>{reason}</li>
@@ -169,7 +212,7 @@ export default function EsiRegistrationPage() {
                 </ul>
               </div>
             </div>
-            
+
             <aside className="space-y-8">
               <QuoteForm />
               <Card className="bg-secondary">
@@ -177,7 +220,9 @@ export default function EsiRegistrationPage() {
                   <div className="bg-primary text-primary-foreground rounded-full p-3">
                     <Phone className="h-8 w-8" />
                   </div>
-                  <CardTitle className="font-headline text-2xl mt-2">Have a Question?</CardTitle>
+                  <CardTitle className="font-headline text-2xl mt-2">
+                    Have a Question?
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="flex items-center justify-center gap-2 mt-2 mb-1">
@@ -186,7 +231,10 @@ export default function EsiRegistrationPage() {
                   </p>
                   <p className="flex items-center justify-center gap-2">
                     <Mail className="h-4 w-4" />
-                    <a href="mailto:info@cacsfinaccservices.com" className="hover:text-primary">
+                    <a
+                      href="mailto:info@cacsfinaccservices.com"
+                      className="hover:text-primary"
+                    >
                       info@cacsfinaccservices.com
                     </a>
                   </p>
@@ -198,5 +246,4 @@ export default function EsiRegistrationPage() {
       </section>
     </main>
   );
-
-    
+}
